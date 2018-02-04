@@ -10,15 +10,13 @@ function getSubcategoryScore(name) {
     const form = document.getElementById("rating"),
           elements = form.elements[name]
 
-    let checked
-
     for (let element of elements) {
       if (element.checked) {
         return element.value
       }
     }
 
-    return checked
+    return 0
   } else {
     throw new Error('Function getSubcategoryScore() requires one argument of type string.')
   }
@@ -33,16 +31,16 @@ function getCategoryScores(fieldset) {
 
   const allFields = [...fieldset.querySelectorAll('.form-group')]
 
-  let results = {
-    scale: Number(fieldset.dataset.categoryScale),
-    scores: []
-  }
+  let results = [
+    Number(fieldset.dataset.categoryScale),
+    []
+  ]
 
   for (let field of allFields) {
       let name = field.id,
           scale = field.dataset.subcategoryScale
 
-      results["scores"].push([Number(scale), Number(getSubcategoryScore(name.toString()))])
+      results[1].push([Number(scale), Number(getSubcategoryScore(name.toString()))])
   }
 
   return results
@@ -55,12 +53,12 @@ function validateForm(event)  {
 
   const categories = [...event.target.querySelectorAll('fieldset')]
 
-  let results = {}
+  let results = new Array()
 
   for (let category of categories) {
-    let categoryName = category.id
+    let categoryName = (category.id).toString()
 
-    results[categoryName] = getCategoryScores(categoryName.toString())
+    results.push(getCategoryScores(categoryName))
   }
 
   calculateCompositeScore(results)

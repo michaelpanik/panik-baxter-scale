@@ -2,31 +2,24 @@
  * This file calculates the final weighted scores
  */
 
-// Calculate the final score.
-function calculateCompositeScore(results) {
+// Calculate the subcategory score
+function calculateScore(array) {
   let total = 0,
-      multiplier = 0
+      divisor = 0
 
-  for (let category in results) {
-    total += calculateCategoryScore(results[category]["scores"])*results[category]["scale"]
-    multiplier += results[category]["scale"]
-  }
+  total = array.reduce( (a,x) => a += (x[0] * x[1]), 0 )
+  divisor = array.reduce( (a,x) => a + (x[0]), 0 )
 
-  compositeScore = Math.round((total/multiplier)*10)/10
-
-  showResults(compositeScore)
+  return total/divisor
 }
 
-// Calculate the subcategory score
-function calculateCategoryScore(array) {
-  let total = 0,
-      multiplier = 0
 
-  for (let subcategory of array) {
-    total += subcategory[0]*subcategory[1]
-    multiplier += subcategory[0]
-  }
+function calculateCompositeScore(results) {
+  results = results.map( x => new Array( x[0], calculateScore(x[1]) ) )
 
-  // return total/multiplier
-  return total/multiplier
+  const compositeScore = Math.round(calculateScore(results)*10)/10
+
+  showResults(compositeScore)
+
+  return Number(compositeScore)
 }
