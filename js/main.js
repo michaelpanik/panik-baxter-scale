@@ -10,7 +10,7 @@ function createRatingField(title, slug, desc, scale) {
 		html += `<h3>${title}</h3>`
 		html += `<p>${desc}</p>`
 
-		for (let i = 1; i <= 11; i++) {
+		for (let i = 1; i <= 10; i++) {
 				if (i === 5) {
 					checked = "checked"
 				} else {
@@ -56,7 +56,7 @@ function createFieldSet(title, subcategories, desc, scale) {
 // Render the form based on fields object using createFieldSet()
 function renderFields() {
 	let output = []
-	
+
 	for (i in fields) {
 		let title = fields[i].title,
 				desc = fields[i].description,

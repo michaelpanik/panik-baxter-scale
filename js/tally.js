@@ -53,10 +53,12 @@ function validateForm(event)  {
 
   const categories = [...event.target.querySelectorAll('fieldset')]
 
+  let results = new Array()
+
   for (let category of categories) {
     let categoryName = (category.id).toString()
 
-    results = new Array(getCategoryScores(categoryName))
+    results.push(getCategoryScores(categoryName))
   }
 
   calculateCompositeScore(results)

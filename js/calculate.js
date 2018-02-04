@@ -21,5 +21,5 @@ function calculateCompositeScore(results) {
 
   showResults(compositeScore)
 
-  return compositeScore
+  return Number(compositeScore)
 }
