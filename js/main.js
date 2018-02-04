@@ -56,7 +56,7 @@ function createFieldSet(title, subcategories, desc, scale) {
 // Render the form based on fields object using createFieldSet()
 function renderFields() {
 	let output = []
-	
+
 	for (i in fields) {
 		let title = fields[i].title,
 				desc = fields[i].description,
@@ -70,6 +70,7 @@ function renderFields() {
 }
 
 renderFields()
+getRatings('Jurassic Park')
 
 function generateStarRating(score) {
 	let stars = ""
