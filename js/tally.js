@@ -33,16 +33,16 @@ function getCategoryScores(fieldset) {
 
   const allFields = [...fieldset.querySelectorAll('.form-group')]
 
-  let results = {
-    scale: Number(fieldset.dataset.categoryScale),
-    scores: []
-  }
+  let results = [
+    Number(fieldset.dataset.categoryScale),
+    []
+  ]
 
   for (let field of allFields) {
       let name = field.id,
           scale = field.dataset.subcategoryScale
 
-      results["scores"].push([Number(scale), Number(getSubcategoryScore(name.toString()))])
+      results[1].push([Number(scale), Number(getSubcategoryScore(name.toString()))])
   }
 
   return results
@@ -55,12 +55,12 @@ function validateForm(event)  {
 
   const categories = [...event.target.querySelectorAll('fieldset')]
 
-  let results = {}
+  let results = []
 
   for (let category of categories) {
     let categoryName = category.id
 
-    results[categoryName] = getCategoryScores(categoryName.toString())
+    results.push(getCategoryScores(categoryName.toString()))
   }
 
   calculateCompositeScore(results)
