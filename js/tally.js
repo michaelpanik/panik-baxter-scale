@@ -51,7 +51,8 @@ function getCategoryScores(fieldset) {
 function validateForm(event)  {
   event.preventDefault()
 
-  const categories = [...event.target.querySelectorAll('fieldset')]
+  const categories = [...event.target.querySelectorAll('fieldset')],
+        filmTitle = event.target.querySelector('#filmTitle').value
 
   for (let category of categories) {
     let categoryName = (category.id).toString()
@@ -59,5 +60,8 @@ function validateForm(event)  {
     results = new Array(getCategoryScores(categoryName))
   }
 
-  calculateCompositeScore(results)
+  const compositeScore = calculateCompositeScore(results)
+
+  showResults(compositeScore)
+  addRating(filmTitle, compositeScore)
 }
