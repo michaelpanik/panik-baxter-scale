@@ -1,7 +1,7 @@
 # The Panik-Baxter Scale
 ### A System of Objective(ish) Film Rating
 
-[https://michaelpanik.github.io/panik-baxter-scale/]
+https://michaelpanik.github.io/panik-baxter-scale/
 
 The Panik-Baxter Scale is an attempted to take opinions out of the rating of films, and look at them through a truly objective eye. By breaking down a film into five major categories, each with a set of subcategories that ask for the reviewers' evaluation of a highly-specific aspect of the film, the final score can be seen as a reflection of the quality of the film as a whole, rather than the opinions of a few.
 
