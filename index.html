@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Panik-Baxter Scale</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
+  <body>
+    <div class="container pt-5 pb-5">
+      <header class="pb-3 mb-5">
+        <h1 class="display-1">The Panik-Baxter Scale</h1>
+        <h2>A System of Objective(ish) Film Rating</h2>
+      </header>
+
+      <main>
+
+        <form onsubmit="validateForm(event)">
+
+          <h2 class="mb-3 pb-2 border-bottom">Basic Information</h2>
+
+        	<section class="pl-3 pr-3 mb-5">
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="reviewersName">Reviewer's Name</label>
+                  <input class="form-control" id="reviewersName" placeholder="Michael Panik">
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="filmTitle">Film Title</label>
+                  <input class="form-control" id="filmTitle" placeholder="Jurassic Park">
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+          <section id="rating"></section>
+
+          <input class="btn btn-primary btn-lg btn-block" type="submit">
+        </form>
+      </main>
+
+      <div id="results" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <p id="modal-message">Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./js/config.js" charset="utf-8"></script>
+    <script src="./js/main.js" charset="utf-8"></script>
+    <script src="./js/tally.js" charset="utf-8"></script>
+    <script src="./js/calculate.js" charset="utf-8"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </body>
+</html>
