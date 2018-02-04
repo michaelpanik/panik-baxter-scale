@@ -15,14 +15,11 @@ function calculateScore(array) {
 
 
 function calculateCompositeScore(results) {
-  let total = 0,
-      divisor = 0,
-      categoryScores = []
+  results = results.map( x => new Array( x[0], calculateScore(x[1]) ) )
 
-  for (let i of results) {
-    categoryScores.push([i[0], calculateScore(i[1])])
-  }
+  const compositeScore = Math.round(calculateScore(results)*10)/10
 
-  compositeScore = Math.round(calculateScore(categoryScores)*10)/10
   showResults(compositeScore)
+
+  return compositeScore
 }

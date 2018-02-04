@@ -1,5 +1,19 @@
+.composite-score {
+    font-size: 10em;
+    font-weight: bolder;
+    position: relative;
+    line-height: 1em;
+}
+
+.composite-score small {
+    font-size: .25em;
+    position: absolute;
+    bottom: -1em;
+    color: lightgray;
+}
+
 .rating-star {
-    font-size: 3em;
+    font-size: 1.5em;
     color: gold;
     opacity: 0;
     animation: star .35s 1;

@@ -9,9 +9,8 @@ function createRatingField(title, slug, desc, scale) {
 		html = `<div class="form-group mb-4" id="${slug}" data-subcategory-scale="${scale}">`
 		html += `<h3>${title}</h3>`
 		html += `<p>${desc}</p>`
-		// html += `<ul class="list-inline">`
 
-		for (let i = 1; i <= 10; i++) {
+		for (let i = 1; i <= 11; i++) {
 				if (i === 5) {
 					checked = "checked"
 				} else {
@@ -24,7 +23,6 @@ function createRatingField(title, slug, desc, scale) {
 								 </div>`
 		}
 
-		// html += `</ul>`
 		html += `</div>`
 
 		return html
@@ -58,14 +56,14 @@ function createFieldSet(title, subcategories, desc, scale) {
 // Render the form based on fields object using createFieldSet()
 function renderFields() {
 	let output = []
-
+	
 	for (i in fields) {
 		let title = fields[i].title,
 				desc = fields[i].description,
 				scale = fields[i].scale,
 				subcategories = fields[i].subcategories
 
-		output.push(createFieldSet(title, subcategories, desc, scale))
+		output += createFieldSet(title, subcategories, desc, scale)
 	}
 
 	$("#categories").html(output)
@@ -105,7 +103,8 @@ function showResults(compositeScore) {
 
 	let output
 
-	output = generateStarRating(compositeScore)
+	output = `<h1 class="composite-score text-center">${compositeScore}<small>/10</small></h1>`
+	output += generateStarRating(compositeScore)
 	output += `Your Panik-Baxter composite film rating is <strong>${compositeScore}</strong>. Thanks for participating!`
 
 	$modalContent.html(output)
