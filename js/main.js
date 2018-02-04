@@ -68,7 +68,7 @@ function renderFields() {
 		output.push(createFieldSet(title, subcategories, desc, scale))
 	}
 
-	$("#rating").html(output)
+	$("#categories").html(output)
 }
 
 renderFields()
