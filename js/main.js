@@ -70,7 +70,6 @@ function renderFields() {
 }
 
 renderFields()
-getRatings('Jurassic Park')
 
 function generateStarRating(score) {
 	let stars = ""
@@ -110,4 +109,20 @@ function showResults(compositeScore) {
 
 	$modalContent.html(output)
 	$modal.modal()
+}
+
+function renderRatingsList(data) {
+	data = data.map(x => `<tr><td>${x.filmName}</td><td>${x.score}</td><tr>`).join("")
+
+	let html
+	html = '<table id="ratingsList" class="table">'
+	html += '<thead>'
+	html += '<tr><th>Film Title</th><th>Rating</th></tr>'
+	html += '</thead>'
+	html += '<tbody>'
+	html += data
+	html += '</tbody>'
+	html += '</table>'
+
+	$("#ratings").html(html)
 }
