@@ -19,7 +19,5 @@ function calculateCompositeScore(results) {
 
   const compositeScore = Math.round(calculateScore(results)*10)/10
 
-  showResults(compositeScore)
-
   return compositeScore
 }

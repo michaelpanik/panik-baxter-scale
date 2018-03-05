@@ -10,7 +10,7 @@ function createRatingField(title, slug, desc, scale) {
 		html += `<h3>${title}</h3>`
 		html += `<p>${desc}</p>`
 
-		for (let i = 1; i <= 11; i++) {
+		for (let i = 1; i <= 10; i++) {
 				if (i === 5) {
 					checked = "checked"
 				} else {
@@ -111,8 +111,19 @@ function showResults(compositeScore) {
 	$modal.modal()
 }
 
+function showRatings(data) {
+	const $modal = $("#ratingsModal"),
+				$modalContent = $modal.find('.modal-body')
+
+				console.log(data);
+
+	$modalContent.html(renderRatingsList(data))
+
+	$modal.modal()
+}
+
 function renderRatingsList(data) {
-	data = data.map(x => `<tr><td>${x.filmName}</td><td>${x.score}</td><tr>`).join("")
+	data = data.map(x => `<tr><td>${x.filmTitle}</td><td>${(x.aggregateScore).toFixed(1)}<small>/10</small></td><tr>`).join("")
 
 	let html
 	html = '<table id="ratingsList" class="table">'
@@ -125,4 +136,8 @@ function renderRatingsList(data) {
 	html += '</table>'
 
 	$("#ratings").html(html)
+}
+
+function clearForm(form) {
+	form.reset()
 }

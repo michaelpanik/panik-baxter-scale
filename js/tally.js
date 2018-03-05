@@ -10,13 +10,15 @@ function getSubcategoryScore(name) {
     const form = document.getElementById("rating"),
           elements = form.elements[name]
 
+    let checked
+
     for (let element of elements) {
       if (element.checked) {
         return element.value
       }
     }
 
-    return 0
+    return checked
   } else {
     throw new Error('Function getSubcategoryScore() requires one argument of type string.')
   }
@@ -51,17 +53,29 @@ function getCategoryScores(fieldset) {
 function validateForm(event)  {
   event.preventDefault()
 
-  const categories = [...event.target.querySelectorAll('fieldset')],
-        filmTitle = event.target.querySelector('#filmTitle').value
+  const categories = [...event.target.querySelectorAll('fieldset')], // All fieldsets
+        reviewersName = event.target.querySelector('#reviewersName').value, // Reviwer's Name field
+        filmTitle = event.target.querySelector('#filmTitle').value // Film Title
+        // filmID = event.target.querySelector('#filmID').value // Film ID
+
+  // Build an array of the results of each category score
+  let results = []
 
   for (let category of categories) {
-    let categoryName = (category.id).toString()
+    let categoryName = category.id
 
-    results = new Array(getCategoryScores(categoryName))
+    results.push(getCategoryScores(categoryName.toString()))
   }
 
-  const compositeScore = calculateCompositeScore(results)
+  // Calc composite score from category score array
+  let compositeScore = calculateCompositeScore(results)
 
+  // Fire the results modal
   showResults(compositeScore)
-  addRating(filmTitle, compositeScore)
+
+  // Send data to the database
+  db_storeRating(reviewersName, filmData, filmTitle, compositeScore)
+
+  // Clear the form
+  clearForm(event.target)
 }
