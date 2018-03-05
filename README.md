@@ -13,7 +13,8 @@ In terms of the web interface, everything is pure, Vanilla ES6 JS. The form is g
 
 ## To do
 1. N/A option for certain subcategories (score/soundtrack, audio in silent pictures)
-1. Configure backend system for storing all ratings
-1. Get averaged master rating from backend
+1. Unique film IDs/hook into an open film db
+1. ~Configure backend to store all ratings~
+1. ~Get averaged master rating from backend~
 1. Bell curve system for master ratings after 5 have been submitted
 1. Different scales for different genres
