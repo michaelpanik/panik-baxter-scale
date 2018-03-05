@@ -9,8 +9,6 @@ Each subcategory is scaled using the Golden Ratio, in a further attempt to be un
 
 The final composite score is, essentially, a composite of a composite.
 
-In terms of the web interface, everything is pure, Vanilla ES6 JS. The form is generated based on the configuration file rather than by hand in HTML for quick edits and maintenance.
-
 ## To do
 1. N/A option for certain subcategories (score/soundtrack, audio in silent pictures)
 1. Unique film IDs/hook into an open film db
@@ -18,3 +16,4 @@ In terms of the web interface, everything is pure, Vanilla ES6 JS. The form is g
 1. ~Get averaged master rating from backend~
 1. Bell curve system for master ratings after 5 have been submitted
 1. Different scales for different genres
+1. Rebuild UI in Vue
